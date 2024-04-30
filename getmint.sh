@@ -58,7 +58,7 @@ fi
 
 response=$(curl -L -so /dev/null -w '%{http_code}\n' https://$mirror/linuxmint/stable/$version/)
 if [[ $response == "404" ]]
-then printf "Linux Mint version $version $edition edition not yet released.\n"
+then printf "Linux Mint version $version $edition edition is not available.\n"
 
 elif [[ $response == "200" ]]
 then printf "Linux Mint version $version $edition edition is available for download.\n"
