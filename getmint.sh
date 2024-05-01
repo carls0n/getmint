@@ -4,7 +4,7 @@
 # My other repositories: https://github.com/carls0n/
 
 edition="xfce" # default edition
-mirror="mirrors.kernel.org" # default mirror
+mirrors="mirrors.kernel.org" # default mirror
 
 function usage {
 echo "-v  (version) - Check for version other than latest version"
@@ -49,14 +49,14 @@ fi
 function test {
 if [[ $download == "1" ]] && [[ $edition == "edge" ]]
 then 
-wget -q -c --show-progress https://$mirror/linuxmint/stable/$version/linuxmint-$version-cinnamon-64bit-edge.iso
+wget -q -c --show-progress https://$mirrors/linuxmint/stable/$version/linuxmint-$version-cinnamon-64bit-edge.iso
 
 elif [[ $download == "1" ]] && [[ $edition != "edge" ]]; then
-wget -q -c --show-progress https://$mirror/linuxmint/stable/$version/linuxmint-$version-$edition-64bit.iso
+wget -q -c --show-progress https://$mirrors/linuxmint/stable/$version/linuxmint-$version-$edition-64bit.iso
 exit
 fi
 
-response=$(curl -L -so /dev/null -w '%{http_code}\n' https://$mirror/linuxmint/stable/$version/)
+response=$(curl -L -so /dev/null -w '%{http_code}\n' https://$mirrors/linuxmint/stable/$version/)
 if [[ $response == "404" ]]
 then printf "Linux Mint version $version $edition edition is not available.\n"
 
