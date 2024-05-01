@@ -10,7 +10,7 @@ function usage {
 echo "-v  (version) - Check for version other than latest version"
 echo "-e  edition (mate, xfce, cinnamon and edge)"
 echo "-d  Download selected version"
-echo "-m  Use mirror instead. i.e, mirrors.giganet.com"
+echo "-m  Use mirror instead. i.e, giganet.com"
 }
 
 function get_args {
