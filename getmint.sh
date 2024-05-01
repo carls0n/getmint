@@ -10,18 +10,18 @@ function usage {
 echo "-v  (version) - Check for version other than latest version"
 echo "-e  edition (mate, xfce, cinnamon and edge)"
 echo "-d  Download selected version"
-echo "-m  Use mirror instead. i.e, giganet.com"
+echo "-m  Use mirror instead. i.e, mirrors.gigenet.com"
 }
 
 function get_args {
-   while getopts ":hv:de:om:" arg; do
+   while getopts ":hv:de:o" arg; do
    case $arg in
    v) version="$OPTARG" ;;
    d) download=1;;
    h) usage && exit;;  
    e) edition="$OPTARG";;
    o) override=1;;
-   m) mirrors="$OPTARG";;
+#   m) mirrors="$OPTARG";;
    esac
    done
 }
@@ -31,7 +31,7 @@ function systemd_check {
 }
 
 function warn {
-if [[ ! $override ]] &&  [[ $(hostnamectl | grep Op* | awk '{print $3,$4}') != "Linux Mint" ]]
+if [[ ! $override ]] &&  [[ $(hostnamectl | grep Op* | awk '{print $3,$4}') != "Linux Minnt" ]]
 then 
 echo "This script is meant to be used with a Linux Mint installation. 
 use -o to override and indicate which version and edition you want to download."
