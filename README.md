@@ -4,5 +4,6 @@
 * Can be used with any systemd based Linux distribution<br>
 * Choose your preferred edition, XFCE, Mate, Cinnamon or Edge.<br>
 * Edit script to choose your default edition and mirror for a simple download.<br>
-* Supports the use of mirrors
+* Supports the use of mirrors<br>
+* Resume interrupted downloads
 #
