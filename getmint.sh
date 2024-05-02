@@ -20,7 +20,6 @@ function get_args {
    h) usage && exit;;  
    e) edition="$OPTARG";;
    o) override=1;;
-#   m) mirrors="$OPTARG";;
    esac
    done
 }
@@ -55,12 +54,10 @@ wget -q -c --show-progress https://$mirrors/linuxmint/stable/$version/linuxmint-
 exit
 fi
 
-response=$(curl -L -so /dev/null -w '%{http_code}\n' https://$mirrors/linuxmint/stable/$version/)
-if [[ $response == "404" ]]
-then printf "Linux Mint version $version $edition edition is not available.\n"
-
-elif [[ $response == "200" ]]
+if curl -sL https://$mirrors/linuxmint/stable/$version/ | grep -q linuxmint-$version-$edition-64bit.iso
 then printf "Linux Mint version $version $edition edition is available for download.\n"
+else
+printf "Linux Mint version $version $edition edition is not available.\n"
 fi
 }
 
